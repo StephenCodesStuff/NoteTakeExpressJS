@@ -29,7 +29,8 @@
   
   
   ## Usage
-
+ 
+   Deployed App [Note Taker](https://notetakerexpressjs-821b9d46a315.herokuapp.com/notes)
   
   ## License
 
