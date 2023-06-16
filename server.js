@@ -7,7 +7,7 @@ const PORT = 3001;
 const noteData = require('./db/db.json')
 const util = require('util');
 const readFromFile = util.promisify(fs.readFile);
-
+const writeToFile = util.promisify(fs.writeFile);
 //Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -64,6 +64,25 @@ app.post('/api/notes', (req, res) => {
     res.status(500).json('Error in posting note');
   }
 });
+
+// app.delete('/api/notes/:id', (req, res) => {
+//   readFromFile('./db/db.json').then((data) => JSON.parse(data))
+//     .then((data) => {
+//       return data.filter((note) => note.id !== req.params.id);
+//     }) 
+//     .then((filteredNotes)  => {
+//       console.log(filteredNotes)
+      // fs.writeFile(`./db/db.json`, JSON.stringify(filteredNotes, null, 2), (err) =>
+      //   err
+      //     ? console.error(err)
+      //     : console.log(
+      //       `notes for ${filteredNotes.title} has been written to JSON file`
+      //     )
+      // );
+
+    // })
+// });
+
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT} 🚀`)
